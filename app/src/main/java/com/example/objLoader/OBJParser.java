@@ -29,41 +29,6 @@ public class OBJParser {
 		context=ctx;
 	}
 
-//	public TDModel parseOBJ(String fileName) {
-//		BufferedReader reader=null;
-//		String line = null;
-//		Material m=null;
-//
-//		try { //try to open file
-//			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
-//		} 		catch(IOException e){
-//		}
-//		try {//try to read lines of the file
-//			while((line = reader.readLine()) != null) {
-//				Log.v("obj",line);
-//				if(line.startsWith("f")){//a polygonal face
-//					processFLine(line);
-//				}else if(line.startsWith("vn")){
-//					processVNLine(line);
-//				}else if(line.startsWith("vt")){
-//					processVTLine(line);
-//				}else if(line.startsWith("v")){ //line having geometric position of single vertex
-//					processVLine(line);
-//				}
-//			}
-//		} catch(IOException e){
-//			System.out.println("wtf...");
-//		}
-//		if(faces!= null){//if not this is not the start of the first group
-//			TDModelPart model=new TDModelPart(faces, vtPointer, vnPointer, m,vn);
-//			parts.add(model);
-//		}
-//		TDModel t=new TDModel(v,vn,vt,parts);
-//		t.buildVertexBuffer();
-//		Log.v("models",t.toString());
-//		return t;
-//	}
-
 	public TDModel parseOBJ(String fileName) {
 		BufferedReader bufReader=null;
 		InputStreamReader inputReader=null;
@@ -71,7 +36,6 @@ public class OBJParser {
 		Material m=null;
 
 		try { //try to open file
-//			reader = new BufferedReader(new InputStreamReader(new FileInputStream(fileName)));
 			inputReader = new InputStreamReader(context.getResources().getAssets().open(fileName) );
 			bufReader = new BufferedReader(inputReader);
 		}catch(IOException e){
